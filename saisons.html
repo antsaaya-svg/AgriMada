@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits - Agriculture Malgache</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style type="text/css">
+    /* style.css - Style commun pour les 3 pages */
+    
+    /* Variables CSS */
+    :root {
+    --primary-color: #2e7d32;
+    --primary-light: #4caf50;
+    --primary-dark: #1b5e20;
+    --secondary-color: #ff9800;
+    --light-color: #f5f5f5;
+    --dark-color: #333;
+    --white: #ffffff;
+    --gray: #757575;
+    --light-gray: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    }
+    
+    /* Reset et base */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    html {
+    scroll-behavior: smooth;
+    }
+    
+    body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--white);
+    }
+    
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
+    
+    /* Typographie */
+    h1, h2, h3, h4 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    }
+    
+    p {
+    margin-bottom: 1rem;
+    }
+    
+    a {
+    text-decoration: none;
+    color: inherit;
+    }
+    
+    ul {
+    list-style: none;
+    }
+    
+    /* Navigation */
+    .navbar {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    }
+    
+    .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    }
+    
+    .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    }
+    
+    .logo i {
+    font-size: 1.8rem;
+    }
+    
+    .nav-menu {
+    display: flex;
+    gap: 2rem;
+    }
+    
+    .nav-menu a {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    }
+    
+    .nav-menu a:hover {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    }
+    
+    .nav-menu a.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    }
+    
+    /* Hero Section */
+    .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('images/background.jpg') center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 3rem;
+    }
+    
+    .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    }
+    
+    .hero h1 {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    }
+    
+    .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    }
+    
+    .btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: var(--transition);
+    border: 2px solid var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+    background-color: transparent;
+    border-color: var(--white);
+    }
+    
+    /* Page Header */
+    .page-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    }
+    
+    .page-header h1 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    }
+    
+    .page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    }
+    
+    /* Sections */
+    .section {
+    padding: 4rem 0;
+    }
+    
+    .bg-light {
+    background-color: var(--light-color);
+    }
+    
+    .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    }
+    
+    .section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto;
+    }
+    
+    /* Section Introduction */
+    .intro-section {
+    text-align: center;
+    }
+    
+    .section-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    }
+    
+    /* Featured Grid */
+    .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    }
+    
+    .featured-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    }
+    
+    .featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .featured-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    }
+    
+    .featured-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+    }
+    
+    .btn-link {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: var(--transition);
+    }
+    
+    .btn-link:hover {
+    color: var(--primary-dark);
+    }
+    
+    /* Statistiques */
+    .stats-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    }
+    
+    .stats-section .section-title {
+    color: var(--white);
+    }
+    
+    .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    }
+    
+    .stat-item {
+    padding: 1rem;
+    }
+    
+    .stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    }
+    
+    /* Product Cards */
+    .product-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    align-items: center;
+    }
+    
+    .product-card.reverse {
+    direction: rtl;
+    }
+    
+    .product-card.reverse > * {
+    direction: ltr;
+    }
+    
+    .product-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    }
+    
+    .product-title {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    }
+    
+    .product-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--gray);
+    }
+    
+    .product-region, .product-season {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    }
+    
+    .product-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    }
+    
+    .product-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    }
+    
+    .product-details ul {
+    padding-left: 1.5rem;
+    }
+    
+    .product-details li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    }
+    
+    .product-details li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: -1rem;
+    }
+    
+    /* Other Products Grid */
+    .other-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    }
+    
+    .other-product {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    }
+    
+    .other-product:hover {
+    transform: translateY(-5px);
+    }
+    
+    .other-product i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    }
+    
+    .other-product h3 {
+    margin-bottom: 0.5rem;
+    }
+    
+    /* Season Table */
+    .table-responsive {
+    overflow-x: auto;
+    margin-top: 2rem;
+    }
+    
+    .season-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    overflow: hidden;
+    }
+    
+    .season-table thead {
+    background-color: var(--primary-color);
+    color: var(--white);
+    }
+    
+    .season-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    }
+    
+    .season-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .season-table tbody tr:hover {
+    background-color: var(--light-color);
+    }
+    
+    /* Seasons Grid */
+    .seasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    }
+    
+    .season-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    }
+    
+    .season-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    }
+    
+    .season-header i {
+    font-size: 2rem;
+    }
+    
+    .season-header h3 {
+    color: var(--white);
+    margin: 0;
+    flex: 1;
+    }
+    
+    .season-period {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    }
+    
+    .season-content {
+    padding: 1.5rem;
+    }
+    
+    .season-content h4 {
+    color: var(--primary-color);
+    margin: 1rem 0 0.5rem;
+    }
+    
+    .season-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    }
+    
+    .season-content li {
+    margin-bottom: 0.5rem;
+    list-style: disc;
+    }
+    
+    .season-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    }
+    
+    .product-tag {
+    background-color: var(--light-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    }
+    
+    /* Advice Card */
+    .advice-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    }
+    
+    .advice-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    }
+    
+    .advice-content h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    .footer {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+    }
+    
+    .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    }
+    
+    .footer-section h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    }
+    
+    .footer-section ul li {
+    margin-bottom: 0.5rem;
+    }
+    
+    .footer-section a:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+    }
+    
+    .footer-section i {
+    margin-right: 10px;
+    color: var(--primary-light);
+    }
+    
+    .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+    .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+    }
+    
+    .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    
+    .hero h1 {
+    font-size: 2.5rem;
+    }
+    
+    .product-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    }
+    
+    .featured-grid,
+    .stats-grid,
+    .seasons-grid {
+    grid-template-columns: 1fr;
+    }
+    
+    .advice-card {
+    flex-direction: column;
+    text-align: center;
+    }
+    
+    .hero {
+    height: 50vh;
+    }
+    }
+    
+    @media (max-width: 480px) {
+    .product-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+    }
+    
+    .hero h1 {
+    font-size: 2rem;
+    }
+    
+    .section-title {
+    font-size: 1.8rem;
+    }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class=""></div>
+<a href="index.html"><h4>Retour</h4></a>
+        <div class="nav-container">
+            <div class="logo">
+
+                <i class="fas fa-leaf"></i>
+                <span>AgriMada</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="Saisons.html" class="active">Produits</a></li>
+                <li><a href="produit.html">Saisons</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Nos Produits Agricoles</h1>
+            <p>Découvrez la diversité des productions malgaches</p>
+        </div>
+    </header>
+
+    <!-- Section Produits -->
+    <section class="section">
+        <div class="container">
+            <!-- Produit Riz -->
+            <div class="product-card" id="riz">
+                <div class="product-image">
+                    <img src="1.jpeg" alt="Riz malgache">
+                </div>
+                <div class="product-content">
+                    <h2 class="product-title">Riz Malgache</h2>
+                    <div class="product-meta">
+                        <span class="product-region"><i class="fas fa-map-marker-alt"></i> Région: Alaotra, Betsiboka</span>
+                        <span class="product-season"><i class="fas fa-calendar-alt"></i> Saison: Novembre - Avril</span>
+                    </div>
+                    <p class="product-description">
+                        Le riz est la base de l'alimentation malgache. Madagascar produit plusieurs variétés 
+                        dont le riz paddy, le riz blanc et le riz rouge. Les rizières en terrasses des hauts 
+                        plateaux sont un spectacle unique.
+                    </p>
+                    <div class="product-details">
+                        <h3>Caractéristiques :</h3>
+                        <ul>
+                            <li>Variétés principales : Makalioka, Rojofotsy, Vary gasy</li>
+                            <li>Production annuelle : environ 4 millions de tonnes</li>
+                            <li>Consommation : 120 kg par habitant/an</li>
+                            <li>Exportation : Asie, Moyen-Orient</li>
+                    0   </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit Café -->
+            <div class="product-card reverse" id="cafe">
+                <div class="product-image">
+                    <img src="2.jpeg" alt="Café malgache">
+                </div>
+                <div class="product-content">
+                    <h2 class="product-title">Café de Madagascar</h2>
+                    <div class="product-meta">
+                        <span class="product-region"><i class="fas fa-map-marker-alt"></i> Région: Sava, Fianarantsoa</span>
+                        <span class="product-season"><i class="fas fa-calendar-alt"></i> Saison: Avril - Septembre</span>
+                    </div>
+                    <p class="product-description">
+                        Le café malgache est reconnu pour sa qualité et son arôme unique. 
+                        Principalement cultivé dans les régions de l'Est, il est exporté 
+                        vers l'Europe et les États-Unis.
+                    </p>
+                    <div class="product-details">
+                        <h3>Caractéristiques :</h3>
+                        <ul>
+                            <li>Types : Arabica (80%), Robusta (20%)</li>
+                            <li>Altitude : 600 à 1500 mètres</li>
+                            <li>Production : 60 000 tonnes/an</li>
+                            <li>Exportation : France, Allemagne, États-Unis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit Vanille -->
+            <div class="product-card" id="vanille">
+                <div class="product-image">
+                    <img src="4.jpeg" alt="Vanille malgache">
+                </div>
+                <div class="product-content">
+                    <h2 class="product-title">Vanille Bourbon</h2>
+                    <div class="product-meta">
+                        <span class="product-region"><i class="fas fa-map-marker-alt"></i> Région: Sava, Antalaha</span>
+                        <span class="product-season"><i class="fas fa-calendar-alt"></i> Saison: Juin - Décembre</span>
+                    </div>
+                    <p class="product-description">
+                        Madagascar est le premier producteur mondial de vanille, 
+                        fournissant environ 80% de la vanille bourbon. La vanille 
+                        malgache est réputée pour sa qualité et son arôme exceptionnel.
+                    </p>
+                    <div class="product-details">
+                        <h3>Caractéristiques :</h3>
+                        <ul>
+                            <li>Type : Vanilla planifolia</li>
+                            <li>Processus : Pollinisation manuelle</li>
+                            <li>Production : 2000-3000 tonnes/an</li>
+                            <li>Exportation : Monde entier</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit Litchi -->
+            <div class="product-card reverse" id="litchi">
+                <div class="product-image">
+                    <img src="2.jpeg" alt="Litchi malgache">
+    
+                <div class="product-content">
+                    <h2 class="product-title">Litchi de Madagascar</h2>
+                    <div class="product-meta">
+                        <span class="product-region"><i class="fas fa-map-marker-alt"></i> Région: Tamatave, Fénérive</span>
+                        <span class="product-season"><i class="fas fa-calendar-alt"></i> Saison: Novembre - Janvier</span>
+                    </div>
+                    <p class="product-description">
+                        Le litchi est l'un des principaux fruits d'exportation de Madagascar. 
+                        Sa production est concentrée sur la côte Est où le climat tropical 
+                        humide favorise sa croissance.
+                    </p>
+                    <div class="product-details">
+                        <h3>Caractéristiques :</h3>
+                        <ul>
+                            <li>Variété : Litchi chinensis</li>
+                            <li>Récolte : Manuellement à maturité</li>
+                            <li>Production : 100 000 tonnes/an</li>
+                            <li>Exportation : Europe (France, Allemagne)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autres Produits -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Autres Productions</h2>
+            
+            <div class="other-products-grid">
+                <div class="other-product">
+                    <i class="fas fa-pepper-hot"></i>
+                    <h3>Poivre</h3>
+                    <p>Poivre noir, blanc et vert</p>
+                </div>
+                
+                <div class="other-product">
+                    <i class="fas fa-fish"></i>
+                    <h3>Crevettes</h3>
+                    <p>Aquaculture sur la côte Ouest</p>
+                </div>
+                
+                <div class="other-product">
+                    <i class="fas fa-honey-pot"></i>
+                    <h3>Miel</h3>
+                    <p>Miel de forêt et de montagne</p>
+                </div>
+                
+                <div class="other-product">
+                    <i class="fas fa-egg"></i>
+                    <h3>Œufs</h3>
+                    <p>Production avicole en croissance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
